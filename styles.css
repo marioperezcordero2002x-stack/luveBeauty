@@ -322,12 +322,18 @@ a {
   overflow: hidden;
   border-bottom: 1px solid rgba(185, 154, 99, 0.4);
   position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #efe4d7, #f8f1e8);
 }
 
 .service-media img {
-  aspect-ratio: 16 / 10;
-  min-height: 170px;
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
+  object-position: center center;
+  min-height: unset;
+  aspect-ratio: auto;
   transition: transform 0.8s ease;
 }
 
@@ -363,6 +369,14 @@ a {
 
 .service-card .btn-small {
   margin-top: auto;
+}
+
+.service-card-eyebrows .service-media img {
+  object-position: center center;
+}
+
+.service-card-makeup .service-media img {
+  object-position: center top;
 }
 
 .service-card h3 {
