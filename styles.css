@@ -560,55 +560,63 @@ a {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.7rem;
+  gap: 0.9rem;
 }
 
 .insta-item {
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(185, 154, 99, 0.42);
-  min-height: 130px;
+  border: 1px solid rgba(185, 154, 99, 0.38);
+  min-height: 145px;
   position: relative;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 10px 20px rgba(96, 70, 37, 0.11);
+  background: #efe5d9;
+  isolation: isolate;
 }
 
 .insta-item img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1;
   transition: transform 0.7s ease;
 }
 
-.insta-item::after {
-  content: "✦ Ver";
+.insta-overlay {
   position: absolute;
-  right: 0.65rem;
-  bottom: 0.55rem;
-  font-size: 0.76rem;
-  color: #fff8ed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(34, 25, 20, 0) 40%, rgba(34, 25, 20, 0.38) 100%);
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.insta-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 242, 221, 0.78);
+  color: #fff7ea;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.08rem;
+  transform: translateY(5px);
+  transition: transform 0.35s ease;
+  backdrop-filter: blur(2px);
 }
 
 .insta-item:hover img {
   transform: scale(1.05);
 }
 
-.insta-item:hover::after {
+.insta-item:hover .insta-overlay {
   opacity: 1;
+}
+
+.insta-item:hover .insta-icon {
   transform: translateY(0);
-}
-
-.insta-item.placeholder {
-  background: linear-gradient(135deg, rgba(245, 233, 219, 0.78), rgba(233, 217, 197, 0.9));
-}
-
-.insta-item.placeholder::before {
-  content: "";
-  position: absolute;
-  inset: 22%;
-  border-radius: 12px;
-  border: 1px dashed rgba(185, 154, 99, 0.58);
 }
 
 .location-inner {
